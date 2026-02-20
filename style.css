@@ -4,14 +4,32 @@ body {
 
 .top_bar {
     width: 100%;
-    height: 100px;
-    background: linear-gradient(to right, #345d9d, #f5a800);
+    height: 20%;
+    background: linear-gradient(to right, #345d9d, #00a0df);
     display: flex;
     flex-direction: column;
 
 }
 
-h1 {
+.lobby {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#f5a800, #502c1e);
+    display: flex;
+    flex-direction: column;
+
+}
+
+#start {
+    width: 30%;
+    height: 15%;
+    align-self: center;
+    display: flex;
+    flex-direction: column
+}
+
+h1,
+p {
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
