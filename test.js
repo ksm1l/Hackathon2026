@@ -1,10 +1,13 @@
 const startBtn = document.getElementById("start");
+const pinDrop = document.getElementById("mapbtn");
 
 startBtn.addEventListener("click", killDiv);
+pinDrop.addEventListener("click", killDiv);
 
 
 function killDiv() {
-  document.getElementById("lobby").style.display = "none";
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("game").style.display = "block";
 }
 
 const xCoordinates = [];
