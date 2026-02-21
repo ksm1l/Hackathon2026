@@ -9,6 +9,13 @@ const southLimit = 49.804333;
 const westLimit = -97.142139;
 const eastLimit = -97.128248;
 
+// variables
+var currImg = 0;
+var xCoordsUser = 0;
+var yCoordsUser = 0;
+var score = 0;
+var distance = 0;
+
 // starts
 startBtn.addEventListener("click", killDiv);
 
@@ -64,11 +71,9 @@ function changeImage() {
     alert("Please choose a point.");
   } else {
     if (currImg < 5) {
-      console.log(currImg);
       currImg = currImg + 1;
-      console.log(currImg);
+      console.log(url[currImg]);
       document.getElementById("image").style.backgroundImage = url[currImg];
-      console.log(currImg);
       score = score + pointsCalc(distance);
       distance = 0;
       window.scrollTo(0, 0);
@@ -82,20 +87,16 @@ function changeImage() {
 }
 
 //first coords are the quad
-const xCoords = [-97.130851, -97.136417, -97.132071, -97.132071, -97.132071];
-const yCoords = [49.810017, 49.810917, 49.808769, 49.808769, 49.808769];
-const url = ["url('https://ksm1l.github.io/Hackathon2026/images/image1.png')",
+const xCoords = [-97.130851, -97.136417, -97.137798, -97.137111, -97.134773];
+const yCoords = [49.810017, 49.810917, 49.810417, 49.810608, 49.811021];
+const url = [
   , "url('https://ksm1l.github.io/Hackathon2026/images/image2.png')"
   , "url('https://ksm1l.github.io/Hackathon2026/images/image3.png')"
   , "url('https://ksm1l.github.io/Hackathon2026/images/image4.png')"
   , "url('https://ksm1l.github.io/Hackathon2026/images/image5.png')"
 ];
 
-var currImg = 1;
-var xCoordsUser = 0;
-var yCoordsUser = 0;
-var score = 0;
-var distance = 0;
+
 
 function distanceCalc(x1, y1, x2, y2) {
   const dx = x2 - x1;
