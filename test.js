@@ -14,8 +14,7 @@ startBtn.addEventListener("click", killDiv);
 
 // gives location of click within the map
 pinDrop.addEventListener("click", function (e) {
-  getPos(e)
-
+  getPos(e);
 });
 
 // will be used to into the next picture
@@ -23,13 +22,13 @@ sendBtn.addEventListener("click", changeImage);
 
 // transforms map coord into pixel coord
 function transformX(coordWE) {
-  let base1 = 1 - (-coordWE + eastLimit) / (-westLimit + eastLimit)
+  let base1 = 1 - (-coordWE + eastLimit) / (-westLimit + eastLimit);
   return base1 * 1300;
 }
 
 // transforms map coord into pixel coord
 function transformY(coordNS) {
-  let base1 = 1 - (coordNS - southLimit) / (northLimit - southLimit)
+  let base1 = 1 - (coordNS - southLimit) / (northLimit - southLimit);
   return base1 * 1241;
 }
 
@@ -37,17 +36,22 @@ function transformY(coordNS) {
 function getPos(e) {
   xCoordsUser = e.offsetX;
   yCoordsUser = e.offsetY;
-  distance = distanceCalc(xCoordsUser, yCoordsUser, transformX(xCoords[currImg]), transformY(yCoords[currImg]));
-  console.log('distance from pic#' + currImg + ' is ' + distance + ' pixels');
+  distance = distanceCalc(
+    xCoordsUser,
+    yCoordsUser,
+    transformX(xCoords[currImg]),
+    transformY(yCoords[currImg]),
+  );
+  console.log("distance from pic#" + currImg + " is " + distance + " pixels");
   console.log(transformX(xCoords[0]));
   console.log(xCoordsUser);
   console.log(transformY(yCoords[0]));
   console.log(yCoordsUser);
 }
 
-// starts 
+// starts
 function killDiv() {
-  console.log('currImg');
+  console.log("currImg");
   document.getElementById("menu").style.display = "none";
   document.getElementById("game").style.display = "block";
   document.getElementById("imageSide").style.display = "block";
@@ -58,19 +62,15 @@ function killDiv() {
 function changeImage() {
   if (distance == 0) {
     alert("Please choose a point.");
-  }
-  else {
+  } else {
     if (currImg < 5) {
-
-
       console.log(currImg);
       currImg = currImg + 1;
       document.getElementById("image").style.backgroundImage = url[currImg];
       score = score + pointsCalc(distance);
       distance = 0;
       window.scrollTo(0, 0);
-    }
-    else {
+    } else {
       document.getElementById("game").style.display = "none";
       console.log(score);
       document.getElementById("endScreen").style.display = "flex";
@@ -78,9 +78,6 @@ function changeImage() {
     }
   }
 }
-
-
-
 
 //first coords are the quad
 const xCoords = [-97.130851, -97.136417, -97.132071, -97.132071, -97.132071];
