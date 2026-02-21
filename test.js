@@ -90,13 +90,12 @@ function changeImage() {
 const xCoords = [-97.130851, -97.136417, -97.137798, -97.137111, -97.134773];
 const yCoords = [49.810017, 49.810917, 49.810417, 49.810608, 49.811021];
 const url = [
-  , "url('https://ksm1l.github.io/Hackathon2026/images/image2.png')"
-  , "url('https://ksm1l.github.io/Hackathon2026/images/image3.png')"
-  , "url('https://ksm1l.github.io/Hackathon2026/images/image4.png')"
-  , "url('https://ksm1l.github.io/Hackathon2026/images/image5.png')"
+  ,
+  "url('https://ksm1l.github.io/Hackathon2026/images/image2.png')",
+  "url('https://ksm1l.github.io/Hackathon2026/images/image3.png')",
+  "url('https://ksm1l.github.io/Hackathon2026/images/image4.png')",
+  "url('https://ksm1l.github.io/Hackathon2026/images/image5.png')",
 ];
-
-
 
 function distanceCalc(x1, y1, x2, y2) {
   const dx = x2 - x1;
@@ -117,9 +116,9 @@ function distanceCalc(x1, y1, x2, y2) {
   let a =
     Math.sin(degreeLat / 2) * Math.sin(degreeLat / 2) +
     Math.cos(xDegLat) *
-    Math.cos(x2DegLat) *
-    Math.sin(degreeLong / 2) *
-    Math.sin(degreeLong / 2);
+      Math.cos(x2DegLat) *
+      Math.sin(degreeLong / 2) *
+      Math.sin(degreeLong / 2);
 
   let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   let distanceInKm = rad * c;
@@ -141,5 +140,5 @@ function pointsCalc(distance) {
     points = Math.max((1 - (distance - minDistance) / maxDistance) * 100, 0);
   }
 
-  return points;
+  return Math.ceil(points);
 }
