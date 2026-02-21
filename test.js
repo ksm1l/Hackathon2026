@@ -3,12 +3,20 @@ const pinDrop = document.getElementById("mapbtn");
 const sendBtn = document.getElementById("send");
 
 startBtn.addEventListener("click", killDiv);
-pinDrop.addEventListener("click", killDiv);
+pinDrop.addEventListener("click", function (e) {
+  getPos(e)
+});
 sendBtn.addEventListener("click", changeImage);
 
 
+function getPos(e) {
+  xCoordsUser = e.offsetX;
+  yCoordsUser = e.offsetY;
+  console.log(xCoordsUser);
+}
 
 function killDiv() {
+  console.log('currImg');
   document.getElementById("menu").style.display = "none";
   document.getElementById("game").style.display = "block";
   document.getElementById("imageSide").style.display = "block";
@@ -16,15 +24,28 @@ function killDiv() {
 }
 
 function changeImage() {
-  document.getElementById("image").style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/1920px-Pink_lady_and_cross_section.jpg')";
+  if (1 > 0) {
+
+    document.getElementById("image").style.backgroundImage = url[currImg];
+    console.log(currImg);
+    currImg = currImg + 1;
+  }
 }
 
-const xCoordinates = [];
-const yCoordinates = [];
-const url = [];
+var currImg = 0;
 
-const xCoordinatesUser = [];
-const yCoordinatesUser = [];
+
+const xCoords = [];
+const yCoords = [];
+const url = ["url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/1920px-Pink_lady_and_cross_section.jpg')"
+  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image1.png')"
+  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image2.png')"
+  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image3.png')"
+  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image4.png')"
+];
+
+var xCoordsUser = 0;
+var yCoordsUser = 0;
 
 let points = pointsCalc(21);
 console.log(points);
