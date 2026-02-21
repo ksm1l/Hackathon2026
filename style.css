@@ -105,6 +105,15 @@ body {
 
 }
 
+#endScreen {
+    display: none;
+    background-image: url("https://umanitoba.ca/facilities/sites/facilities/files/styles/21x9_1100w/public/2021-03/campus-planning-office.jpg");
+    background-size: cover;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 h1,
 h2,
 p {
@@ -112,6 +121,7 @@ p {
     font-family: 'Courier New', Courier, monospace;
 
 }
+
 
 .mainTxt {
     margin: 0;

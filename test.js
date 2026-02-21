@@ -1,9 +1,10 @@
 const startBtn = document.getElementById("start");
 const pinDrop = document.getElementById("mapbtn");
 const sendBtn = document.getElementById("send");
+const scoreSetter = document.getElementById("scoreSetter");
 
 // constants of the limits of our picture in real coordinates
-const northLimit = 49.813089;
+const northLimit = 49.812889;
 const southLimit = 49.804333;
 const westLimit = -97.142139;
 const eastLimit = -97.128248;
@@ -36,10 +37,12 @@ function transformY(coordNS) {
 function getPos(e) {
   xCoordsUser = e.offsetX;
   yCoordsUser = e.offsetY;
-  let result = distanceCalc(xCoordsUser, yCoordsUser, transformX(xCoords[0]), transformY(yCoords[0]));
-  console.log('distance from the quad is ' + result + ' pixels');
-  //console.log(transformX(xCoords[0]));
-  //console.log(transformY(yCoords[0]));
+  distance = distanceCalc(xCoordsUser, yCoordsUser, transformX(xCoords[currImg]), transformY(yCoords[currImg]));
+  console.log('distance from pic#' + currImg + ' is ' + distance + ' pixels');
+  console.log(transformX(xCoords[0]));
+  console.log(xCoordsUser);
+  console.log(transformY(yCoords[0]));
+  console.log(yCoordsUser);
 }
 
 // starts 
@@ -53,14 +56,24 @@ function killDiv() {
 
 // rotates through an array of images
 function changeImage() {
-  if (currImg < 5) {
-
-    document.getElementById("image").style.backgroundImage = url[currImg];
-    console.log(currImg);
-    currImg = currImg + 1;
+  if (distance == 0) {
+    alert("Please choose a point.");
   }
   else {
-    document.getElementById("game").style.display = "none";
+    if (currImg < 1) {
+
+      document.getElementById("image").style.backgroundImage = url[currImg];
+      console.log(currImg);
+      currImg = currImg + 1;
+      score = score + pointsCalc(distance);
+      distance = 0;
+    }
+    else {
+      document.getElementById("game").style.display = "none";
+      console.log(score);
+      document.getElementById("endScreen").style.display = "flex";
+      scoreSetter.innerHTML = score;
+    }
   }
 }
 
@@ -68,8 +81,8 @@ function changeImage() {
 
 
 //first coords are the quad
-const xCoords = [-97.132071];
-const yCoords = [49.808769];
+const xCoords = [-97.132071, -97.132071, -97.132071, -97.132071, -97.132071];
+const yCoords = [49.808769, 49.808769, 49.808769, 49.808769, 49.808769];
 const url = ["url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/1920px-Pink_lady_and_cross_section.jpg')"
   , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image1.png')"
   , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image2.png')"
@@ -80,6 +93,8 @@ const url = ["url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pin
 var currImg = 0;
 var xCoordsUser = 0;
 var yCoordsUser = 0;
+var score = 0;
+var distance = 0;
 
 function distanceCalc(x1, y1, x2, y2) {
   const dx = x2 - x1;
@@ -114,11 +129,11 @@ function distanceCalc(x1, y1, x2, y2) {
 
 //let calcDistance = distanceCalc();
 
-// not updated
+// updated, max points are 100 per round
 function pointsCalc(distance) {
   let points = 100;
-  let maxDistance = 500;
-  let minDistance = 20;
+  let maxDistance = 175;
+  let minDistance = 30;
 
   if (distance > minDistance) {
     points = (1 - (distance - minDistance) / maxDistance) * 100;
