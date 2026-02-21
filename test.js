@@ -66,7 +66,9 @@ function changeImage() {
     if (currImg < 5) {
       console.log(currImg);
       currImg = currImg + 1;
+      console.log(currImg);
       document.getElementById("image").style.backgroundImage = url[currImg];
+      console.log(currImg);
       score = score + pointsCalc(distance);
       distance = 0;
       window.scrollTo(0, 0);
@@ -84,12 +86,12 @@ const xCoords = [-97.130851, -97.136417, -97.132071, -97.132071, -97.132071];
 const yCoords = [49.810017, 49.810917, 49.808769, 49.808769, 49.808769];
 const url = ["url('https://ksm1l.github.io/Hackathon2026/images/image1.png')",
   , "url('https://ksm1l.github.io/Hackathon2026/images/image2.png')"
-  , "url('https://ksm1l.github.io/Hackathon2026/images/image3.png)"
+  , "url('https://ksm1l.github.io/Hackathon2026/images/image3.png')"
   , "url('https://ksm1l.github.io/Hackathon2026/images/image4.png')"
   , "url('https://ksm1l.github.io/Hackathon2026/images/image5.png')"
 ];
 
-var currImg = 0;
+var currImg = 1;
 var xCoordsUser = 0;
 var yCoordsUser = 0;
 var score = 0;
