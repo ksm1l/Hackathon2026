@@ -12,7 +12,7 @@ sendBtn.addEventListener("click", changeImage);
 function getPos(e) {
   xCoordsUser = e.offsetX;
   yCoordsUser = e.offsetY;
-  console.log(xCoordsUser);
+  console.log(xCoordsUser + ' ' + yCoordsUser);
 }
 
 function killDiv() {
@@ -24,11 +24,14 @@ function killDiv() {
 }
 
 function changeImage() {
-  if (1 > 0) {
+  if (currImg < 5) {
 
     document.getElementById("image").style.backgroundImage = url[currImg];
     console.log(currImg);
     currImg = currImg + 1;
+  }
+  else {
+    document.getElementById("game").style.display = "none";
   }
 }
 
