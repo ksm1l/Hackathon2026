@@ -30,7 +30,7 @@ function distanceCalc(x, y, x2, y2) {
   let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   let distanceInKm = rad * c;
 
-  let distanceInM = distanceInKm / 1000;
+  let distanceInM = distanceInKm * 1000;
 
   return distanceInM;
 }
