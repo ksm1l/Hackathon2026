@@ -1,3 +1,12 @@
+const startBtn = document.getElementById("start");
+
+startBtn.addEventListener("click", killDiv);
+
+
+function killDiv() {
+  document.getElementById("lobby").style.display = "none";
+}
+
 const xCoordinates = [];
 const yCoordinates = [];
 const url = [];
@@ -23,9 +32,9 @@ function distanceCalc(x, y, x2, y2) {
   let a =
     Math.sin(degreeLat / 2) * Math.sin(degreeLat / 2) +
     Math.cos(xDegLat) *
-      Math.cos(x2DegLat) *
-      Math.sin(degreeLong / 2) *
-      Math.sin(degreeLong / 2);
+    Math.cos(x2DegLat) *
+    Math.sin(degreeLong / 2) *
+    Math.sin(degreeLong / 2);
 
   let c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   let distanceInKm = rad * c;
