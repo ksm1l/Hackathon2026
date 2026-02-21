@@ -4,17 +4,60 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campus Knowledge test</title>
+  <title>Campus Knowledge Test</title>
   <link href="style.css" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
 </head>
 
 <body>
   <main>
-    <div class="top_bar">
-      <h1>Campus Knowledge Test</h1>
+    <div class="top_bar" id="top_bar">
+      <h1 class="mainTxt" id="title">Campus Knowledge Test</h1>
+
+    </div>
+    <div class="lobby" id="menu">
+      <button type="button" class="button" id="start">
+        <h1 class="mainTxt" id="startext">Start</h1>
+      </button>
+
+      <button type="button" class="button" id="instructions">
+        <h2 class="mainTxt" id="helptext">Help</h2>
+      </button>
+
+
+
+    </div>
+
+    <div id="game">
+      <div id="imageSide">
+        <h2>Where was this image taken?</h2>
+        <div id="image">
+
+        </div>
+
+      </div>
+
+      <div id="mapSide">
+        <h2>Place your guess on the map below.</h2>
+        <input type="image"
+          src="https://cdn.discordapp.com/attachments/400271288696045576/1474723279238463598/image.png?ex=699ae294&is=69999114&hm=31ab484bd279ae829c5b06c257b6414d0e6203e8bf735d90e6932e22e617a37c&"
+          id="mapbtn" />
+
+        <button type="button" class="button" id="send">
+          <p>Submit</p>
+        </button>
+      </div>
+    </div>
+
+    <div class="lobby" id="endScreen">
+      <div class="button">
+        <h1 class="mainTxt">You are done!</h1>
+        <p>Your final score is <span id="scoreSetter"></span></p>
+      </div>
 
     </div>
   </main>
+  <script src="test.js"></script>
 </body>
 
 </html>
