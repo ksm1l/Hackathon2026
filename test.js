@@ -83,8 +83,8 @@ function changeImage() {
 
 
 //first coords are the quad
-const xCoords = [-97.132071, -97.132071, -97.132071, -97.132071, -97.132071];
-const yCoords = [49.808769, 49.808769, 49.808769, 49.808769, 49.808769];
+const xCoords = [-97.130851, -97.136417, -97.132071, -97.132071, -97.132071];
+const yCoords = [49.810017, 49.810917, 49.808769, 49.808769, 49.808769];
 const url = ["url('https://ksm1l.github.io/Hackathon2026/images/image1.png')",
   , "url('https://ksm1l.github.io/Hackathon2026/images/image2.png')"
   , "url('https://ksm1l.github.io/Hackathon2026/images/image3.png)"
@@ -138,7 +138,7 @@ function pointsCalc(distance) {
   let minDistance = 30;
 
   if (distance > minDistance) {
-    points = (1 - (distance - minDistance) / maxDistance) * 100;
+    points = Math.max((1 - (distance - minDistance) / maxDistance) * 100, 0);
   }
 
   return points;
