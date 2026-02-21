@@ -1,5 +1,15 @@
+.custom-cursor {
+    cursor: url("https://static.thenounproject.com/png/3859353-200.png"), pointer;
+}
+
+html {
+    cursor: url("https://static.thenounproject.com/png/3859353-200.png"), pointer;
+}
+
 body {
     margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .top_bar {
@@ -13,23 +23,47 @@ body {
 
 .lobby {
     width: 100%;
-    height: 100vh;
-    background: linear-gradient(#f5a800, #502c1e);
+    height: 89vh;
+    background-image: url("https://umanitoba.ca/facilities/sites/facilities/files/styles/21x9_1100w/public/2021-03/campus-planning-office.jpg");
     display: flex;
+    background-size: cover;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
 }
 
 #start {
     width: 30%;
     height: 15%;
-    align-self: center;
-    display: flex;
-    flex-direction: column
+    background-color: #f5a800;
+    border: 0px;
+    align-content: center;
+
 }
+
+#start:hover {
+    width: 30%;
+    height: 15%;
+    background-color: #bd8304;
+    border: 0px;
+    align-content: center;
+
+}
+
+#startext {
+    color: #502c1e;
+    font-size: 50px;
+    text-align: inherit;
+    margin: 0;
+}
+
+
+
 
 h1,
 p {
+    color: #502c1e;
     text-align: center;
     font-family: 'Courier New', Courier, monospace;
 }
