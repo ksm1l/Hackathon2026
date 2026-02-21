@@ -38,8 +38,8 @@ function getPos(e) {
   yCoordsUser = e.offsetY;
   let result = distanceCalc(xCoordsUser, yCoordsUser, transformX(xCoords[0]), transformY(yCoords[0]));
   console.log('distance from the quad is ' + result + ' pixels');
-  console.log(transformX(xCoords[0]));
-  console.log(transformY(yCoords[0]));
+  //console.log(transformX(xCoords[0]));
+  //console.log(transformY(yCoords[0]));
 }
 
 // starts 
@@ -85,7 +85,7 @@ function distanceCalc(x1, y1, x2, y2) {
   const dx = x2 - x1;
   const dy = y2 - y1;
 
-
+  let x, y;
   let rad = 6371;
 
   let xDegLat = x * (Math.PI / 180);
