@@ -50,10 +50,10 @@ function getPos(e) {
     transformY(yCoords[currImg]),
   );
   console.log("distance from pic#" + currImg + " is " + distance + " pixels");
-  console.log(transformX(xCoords[0]));
-  console.log(xCoordsUser);
-  console.log(transformY(yCoords[0]));
-  console.log(yCoordsUser);
+  //console.log(transformX(xCoords[0]));
+  //console.log(xCoordsUser);
+  //console.log(transformY(yCoords[0]));
+  //console.log(yCoordsUser);
 }
 
 // starts
@@ -70,16 +70,14 @@ function changeImage() {
   if (distance == 0) {
     alert("Please choose a point.");
   } else {
-    if (currImg < 5) {
+    if (currImg < 4) {
       currImg = currImg + 1;
-      console.log(url[currImg]);
       document.getElementById("image").style.backgroundImage = url[currImg];
       score = score + pointsCalc(distance);
       distance = 0;
       window.scrollTo(0, 0);
     } else {
       document.getElementById("game").style.display = "none";
-      console.log(score);
       document.getElementById("endScreen").style.display = "flex";
       scoreSetter.innerHTML = score;
     }
@@ -135,7 +133,7 @@ function distanceCalc(x1, y1, x2, y2) {
 function pointsCalc(distance) {
   let points = 100;
   let maxDistance = 175;
-  let minDistance = 30;
+  let minDistance = 25;
 
   if (distance > minDistance) {
     points = Math.max((1 - (distance - minDistance) / maxDistance) * 100, 0);
