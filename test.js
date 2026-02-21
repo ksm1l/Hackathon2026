@@ -60,13 +60,15 @@ function changeImage() {
     alert("Please choose a point.");
   }
   else {
-    if (currImg < 1) {
+    if (currImg < 5) {
 
-      document.getElementById("image").style.backgroundImage = url[currImg];
+
       console.log(currImg);
       currImg = currImg + 1;
+      document.getElementById("image").style.backgroundImage = url[currImg];
       score = score + pointsCalc(distance);
       distance = 0;
+      window.scrollTo(0, 0);
     }
     else {
       document.getElementById("game").style.display = "none";
@@ -83,11 +85,11 @@ function changeImage() {
 //first coords are the quad
 const xCoords = [-97.132071, -97.132071, -97.132071, -97.132071, -97.132071];
 const yCoords = [49.808769, 49.808769, 49.808769, 49.808769, 49.808769];
-const url = ["url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/1920px-Pink_lady_and_cross_section.jpg')"
-  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image1.png')"
-  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image2.png')"
-  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image3.png')"
-  , "url('https://raw.githubusercontent.com/ksm1l/test/refs/heads/main/image4.png')"
+const url = ["url('https://ksm1l.github.io/Hackathon2026/images/image1.png')",
+  , "url('https://ksm1l.github.io/Hackathon2026/images/image2.png')"
+  , "url('https://ksm1l.github.io/Hackathon2026/images/image3.png)"
+  , "url('https://ksm1l.github.io/Hackathon2026/images/image4.png')"
+  , "url('https://ksm1l.github.io/Hackathon2026/images/image5.png')"
 ];
 
 var currImg = 0;
