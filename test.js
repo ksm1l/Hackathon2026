@@ -1,13 +1,22 @@
 const startBtn = document.getElementById("start");
 const pinDrop = document.getElementById("mapbtn");
+const sendBtn = document.getElementById("send");
 
 startBtn.addEventListener("click", killDiv);
 pinDrop.addEventListener("click", killDiv);
+sendBtn.addEventListener("click", changeImage);
+
 
 
 function killDiv() {
   document.getElementById("menu").style.display = "none";
   document.getElementById("game").style.display = "block";
+  document.getElementById("imageSide").style.display = "block";
+  document.getElementById("mapSide").style.display = "flex";
+}
+
+function changeImage() {
+  document.getElementById("image").style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Pink_lady_and_cross_section.jpg/1920px-Pink_lady_and_cross_section.jpg')";
 }
 
 const xCoordinates = [];
